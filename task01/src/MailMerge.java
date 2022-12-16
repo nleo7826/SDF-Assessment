@@ -23,16 +23,20 @@ public class MailMerge {
         while ((line = br.readLine()) != null) {
 
             String[] words = line.split(",");
-            // String address = null;
-            // // \n not working
-            // if (words[2].toString().contains("\n")) {
-            //     address = words[2].toString().replaceAll("\\n", "\\r\\n");
+
+            // \n does not write a new line to file
+            
+            // String format = null;            
+            // if (words[2].toString().contains("\\n")) {
+            //     format = words[2].toString().replaceAll("\\n", "\\r\\n");
             // } else {
-            //     address = words[2].toString();
+            //     format = words[2].toString();
             // }
-            System.out.println(words[2]);
+            // System.out.println(format);
+
             Info person = new Info(words[0], words[1], words[2], Integer.valueOf(words[3]));
             String id = words[0].toString();
+            
             // Set up map with id and the person's information
             infoList.put(id, person);
         }
@@ -46,18 +50,21 @@ public class MailMerge {
 
         File file = new File("task01/src/resource/" + template);
         BufferedReader br = new BufferedReader(new FileReader(file));
-        Writer w = new FileWriter("task01/src/resource/test.txt");
+        File file1 = new File("task01/src/resource/test.txt");
+        Writer w = new FileWriter(file1);
         BufferedWriter bw = new BufferedWriter(w);
-        // FileOutputStream fos = new FileOutputStream("task01/src/resource/" + template);
 
         Info profile = info.get(name);
-        System.out.println("First name: " + profile.getFirstName() + " Last name: " + profile.getLastName() + 
-        "\nAddress: " + profile.getAddress() + " Years: " + profile.getYears());
+        // Print profile information
+        // System.out.println("First name: " + profile.getFirstName() + " Last name: " + profile.getLastName() + 
+        // "\nAddress: " + profile.getAddress() + " Years: " + profile.getYears());
+
         String line = null;
         String newLine = null;
 
-        while ((line = br.readLine()) != null) {
 
+        while ((line = br.readLine()) != null) {
+            
             if (line.contains("<<address>>")) {
                 newLine = line.replaceAll("<<address>>", profile.getAddress());
                 bw.write(newLine);
@@ -80,6 +87,10 @@ public class MailMerge {
         br.close();
         bw.close();
         w.close();
+
+        file.delete();
+        File file2 = new File("task01/src/resource/" + template);
+        file1.renameTo(file2);
     }
 
 }
