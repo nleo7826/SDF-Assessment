@@ -35,13 +35,13 @@ public class MailMerge {
 
             String[] words = line.split(",");
 
+            int c = 0;
+            //Map value error
             for (String w : words) {
-                for (String c : catogorieList) {
-                    map.put(c, w);
-                    break;
-                }
+                map.put(catogorieList.get(c), w);
+                c++;
             }
-            System.out.println("key value: " + map.entrySet());
+            System.out.println(map.entrySet());
             profile.add(map);
         }
         
@@ -58,10 +58,6 @@ public class MailMerge {
         File file1 = new File("task01/src/resource/test.txt");
         Writer w = new FileWriter(file1);
         BufferedWriter bw = new BufferedWriter(w);
-
-        // Print profile information
-        // System.out.println("First name: " + profile.getFirstName() + " Last name: " + profile.getLastName() + 
-        // "\nAddress: " + profile.getAddress() + " Years: " + profile.getYears());
 
         String line = null;
         String newLine = null;

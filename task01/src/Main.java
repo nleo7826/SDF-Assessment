@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) throws Exception{
 
 
-        String csv = "thankyou.csv";
-        String template = "thankyou.txt";
+        String csv = args[0];
+        String template = args[1];
 
         List<Map<String, String>> info = new LinkedList<Map<String, String>>();
         info = MailMerge.getPersonInfo(csv);

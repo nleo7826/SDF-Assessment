@@ -1,5 +1,5 @@
-<<address>>
+4 Privet DrivenLittle WhingingnSurrey
 
-Dear <<first_name>>,
+Dear Harry,
 
-Thank you for staying with us over these <<years>> years.
+Thank you for staying with us over these 2 years.
