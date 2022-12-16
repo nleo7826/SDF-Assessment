@@ -1,0 +1,6 @@
+Dear <<salutations>>. <<last_name>>,
+
+Thank you for your interest in our new <<package_name>> package! 
+For the 2022 Spring promotion, you can sign up for the low low price of $<<price>>!
+
+Safe travels!
