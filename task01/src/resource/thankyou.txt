@@ -1,0 +1,6 @@
+<<address>>
+
+Dear <<first_name>>,
+
+Thank you for staying with us over these <<years>> years.
+
