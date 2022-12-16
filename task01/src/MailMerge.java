@@ -23,15 +23,15 @@ public class MailMerge {
         while ((line = br.readLine()) != null) {
 
             String[] words = line.split(",");
-            String address = null;
-            // \n not working
+            // String address = null;
+            // // \n not working
             // if (words[2].toString().contains("\n")) {
-            //     address = words[2].toString().replaceAll("\n", "\r\n");
+            //     address = words[2].toString().replaceAll("\\n", "\\r\\n");
             // } else {
             //     address = words[2].toString();
             // }
-            // System.out.println(address);
-            Info person = new Info(words[0], words[1], address, Integer.valueOf(words[3]));
+            System.out.println(words[2]);
+            Info person = new Info(words[0], words[1], words[2], Integer.valueOf(words[3]));
             String id = words[0].toString();
             // Set up map with id and the person's information
             infoList.put(id, person);
